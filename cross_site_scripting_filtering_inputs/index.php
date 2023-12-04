@@ -9,10 +9,6 @@ if(isset($_GET['search'])){
 
 
 
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
