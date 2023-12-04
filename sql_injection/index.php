@@ -7,11 +7,11 @@ if (isset($_GET['id']) && !empty($_GET['id'])){
 
     $userId = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
 
-    $stmt = $connect->prepare("SELECT * FROM user WHERE id=1");
+    $stmt = $conn->prepare("SELECT * FROM user WHERE id=?");
 
     $stmt->execute(array($userId));
 
-    $connect = $stmt->rowCount();
+    $count = $stmt->rowCount();
 
     while ($row = $stmt->fetch()){
 
@@ -19,7 +19,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])){
 
         $name = $row['name'];
     }
-    if ($connect > 0){
+    if ($count > 0){
         echo $name;
     }else{
         echo "There is No Profile With this ID";
@@ -29,6 +29,8 @@ if (isset($_GET['id']) && !empty($_GET['id'])){
 }else{
     echo 'Profile ID Cannot Be Empty';
 }
+
+
 
 
 ?>
