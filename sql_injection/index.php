@@ -5,7 +5,7 @@ global $conn;
 
 if (isset($_GET['id']) && !empty($_GET['id'])){
 
-    // $userId = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
+    $userId = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
 
     $stmt = $connect->prepare("SELECT * FROM user WHERE id=1");
 
